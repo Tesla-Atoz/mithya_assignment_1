@@ -5,12 +5,18 @@ const NewDetail = (props) => {
     const detailData = {
       ...enteredDetailData,
       id: Math.random().toString(),
+      edit: false,
     };
     props.onAddDetail(detailData);
   };
+
   return (
     <div className="new-detail">
-      <DetailForm onSaveExpenseData={saveDetailDataHandler} />
+      <DetailForm
+        onSaveExpenseData={saveDetailDataHandler}
+        currentData={props.currentData}
+        onUpdateDetail={props.onUpdateDetail}
+      />
     </div>
   );
 };
